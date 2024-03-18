@@ -54,25 +54,26 @@ int main(void)
 
     while (1) {
         if (milis() - time > 333 ) {
+            time = milis();
+
             if (PUSH(S1)) {
                 r += 1000;
-                if (r > 10000)
-                    r = 0;
+                if (r > 9000)
+                    r = 1;
                 TIM2_SetCompare1(r-1);
             }
             if (PUSH(S2)) {
                 g += 1000;
-                if (g > 10000)
-                    g = 0;
+                if (g > 9000)
+                    g = 1;
                 TIM2_SetCompare2(g-1);
             }
             if (PUSH(S3)) {
                 b += 1000;
-                if (b > 10000)
-                    b = 0;
+                if (b > 9000)
+                    b = 1;
                 TIM2_SetCompare3(b-1);
             }
-
         }
     }
 }
